@@ -1,0 +1,17 @@
+NestJs
+
+1.
+	https://docs.nestjs.com/first-steps
+	
+// Install nestJs
+	npm i -g @nestjs/cli
+// Create new project
+	nest new project-name
+// Run in dev mode
+	npm run start:dev
+// Controller
+	nest g resource NAME
+// Service
+	nest g service NAME
+// Module
+	nest g module NAME
