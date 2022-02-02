@@ -10,8 +10,30 @@ datasource myDb {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String?
+model FileDomain {
+  id           Int     @default(autoincrement()) @id
+  originalName String
+  path         String
+  mimeType String
+  size Int
+}
+
+model Form {
+  id      Int     @default(autoincrement()) @id
+  title   String
+  type    Type
+  posts   Post[]
+}
+
+model Post {
+  id         Int        @id @default(autoincrement())
+  name       String
+  form       Form       @relation(fields: [formId], references: [id])
+  formId     Int
+}
+
+enum Type {
+  A
+  B
+  C
 }
